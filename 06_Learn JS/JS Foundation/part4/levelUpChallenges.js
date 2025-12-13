@@ -81,10 +81,10 @@ let cityPopulations = {}
 // console.log(Object.values(citiesPopulation));
 for (const city in citiesPopulation) {
     // key = value
-    cityNewPopulations[city] = citiesPopulation[city];
+    cityPopulations[city] = citiesPopulation[city];
     // console.log(citiesPopulation[city]);
 }
-console.log(cityNewPopulations);
+// console.log(cityPopulations);
 
 
 /* 
@@ -115,7 +115,7 @@ for (const city in worldCities) {
   largeCities[city] = worldCities[city];
 }
 
-console.log(largeCities[city]);
+//console.log(largeCities[city]);
 
 /* 
 7. Write a `forEach` loop that iterates through the array `["earl grey", "green tea", "chai", "oolong tea"]`. 
@@ -148,7 +148,7 @@ myWorldCities.forEach(function (city) {
   }
   traveledCities.push(city);
 });
-console.log(traveledCities);
+// console.log(traveledCities);
 
 /* 
 9. Write a `for` loop that iterates through the array `[2, 5, 7, 9]`. 
@@ -158,12 +158,12 @@ console.log(traveledCities);
 let myNumbers = [2, 5, 7, 9];
 let doubledNumbers = [];
 for (let i = 0; i < myNumbers.length; i++) {
-  if (numbers[i] === 7) {
+  if (myNumbers[i] === 7) {
     continue;
   }
-  doubledNumbers.push(numbers[i] * 2);
+  doubledNumbers.push(myNumbers[i] * 2);
 }
-
+// console.log(doubledNumbers);
 /* 
 10. Use a `for-of` loop to iterate through the array `["chai", "green tea", "black tea", "jasmine tea", "herbal tea"]` 
     and stop when the length of the current tea name is greater than 10. 
@@ -179,3 +179,4 @@ for (const tea of myTeas) {
   }
   shortTeas.push(tea);
 }
+// console.log(shortTeas);
