@@ -1,0 +1,23 @@
+
+Weather App:– Project Description
+
+This Weather App provides real-time weather information for any city worldwide. It displays current temperature, humidity, wind speed, and weather conditions using live API data. The app features a simple, responsive UI and delivers accurate forecasts instantly.
+
+Key Features:-
+
+1. Real-time weather updates
+2. Search weather by city name
+3. Temperature, humidity, wind speed display
+4. Responsive and user-friendly design
+5. Fast and accurate API integration
+
+Technologies Used:-
+
+1. HTML
+2. CSS
+3. JavaScript
+4. Weather API (OpenWeatherMap or similar)
+
+Best Use Case:-
+
+Perfect for daily weather checks and beginner-level API integration projects.
