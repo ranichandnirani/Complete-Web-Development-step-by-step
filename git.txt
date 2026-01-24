@@ -1,0 +1,124 @@
+                                            Git & GitHub
+
+Introduction to Git & GitHub
+What is Git?
+            • Git is a version control system used to manage and track changes in source code.
+              It helps developers work together on the same project without overwriting each other’s work.
+            • Git maintains a complete history of changes and allows reverting to previous versions when needed.
+What is GitHub?
+            • GitHub is a web-based platform that provides hosting for Git repositories.
+            It offers tools for collaboration, issue tracking, and project management.
+            • GitHub allows developers to share code and contribute to open-source projects.
+
+Basic GitHub Terms
+
+1. Installing Git
+    Git can be installed on:
+        • Windows
+        • Linux
+        • macOS
+After installation, user identity is configured using username and email.
+
+2. Repository
+    A repository is a directory where Git tracks all files and changes.
+Types of repositories
+        • Local repository
+        • Remote repository
+Repositories contain commits, branches, and configuration files.
+
+3. Branch
+        • Branching allows developers to work on different features independently.
+        • The default branch is usually called main or master.
+        • Branches help avoid conflicts in the main codebase.
+
+4. Commit
+        • A commit represents a saved state of the project.
+        Each commit has a unique ID and a message describing the change.
+        • Commits help track progress and identify changes.
+
+5. Stage
+        • The process of adding changes to the staging area before commiting.
+        • Prepares changes to be commited to the repository.
+
+6. Merge
+        • Merging is the process of combining changes from one branch into another.
+        • Merge conflicts may occur when the same file is modified differently.
+
+7. Clone
+        • Cloning creates a local copy of an existing remote repository.
+        • It allows developers to start working on a project immediately.
+
+8. Pull Request
+        • A pull request is used to request merging changes into the main project.
+        • It allows review and discussion before merging code.
+
+9. Fork
+        • Forking creates a personal copy of someone else’s repository on GitHub.
+        • It is commonly used in open-source contributions.
+
+10. Remote
+        • It enables collaboration among multiple developers.
+        • A remote repository is stored on a server such as GitHub.
+
+11. Conflict
+        • Occurs when changes from different sources overlap ang Git cannot automatically resolve them.
+        • Request manual resolve.
+
+Basic Git Commands
+1. Configuration
+        • Git config –global user.name “ Your Name”
+        • Git config –global user.email “Your.email@example.com”
+        • Git config --list
+2. Creating a Repository
+        • Git init
+            o Initializes a new Git repository in the current directory.
+3. Cloning a Repository
+        • git clone <repo-url>
+            o Copies an existing repository to your local machine.
+4. Staging and Commiting Changes
+        • git add <file_name>
+        • git add .
+            o Stages for commit.
+        • git commit -m “Commit message”
+            o Saves changes with a descriptive message.
+5. Checking Status and Logs
+        • Git status
+        • Git log
+        • Sowing working directory status and commit history.
+6. Branching and Merging
+        • git branch <branch-name>
+        • git checkout <branch-name>
+        • git merge <branch-name>
+            o Creates, switches and merges branch.
+7. Pushing and Pulling Changes
+        • git push origin main
+        • git push -u origin main
+        • git pull origin main
+            o Sends or retrieves changes from a remote repository.
+8. Resolving Merge Conflicts
+        • Conflicts occur when changes overlap.
+        • Use git status to check conflicts files.
+        • Manually edit files to resolve conflicts.
+        • Stage and commit resolved files.
+
+Working with GitHub
+Creating a GitHub Repository
+        • Go to GitHub and log in.
+        • Click on New Repository.
+        • Initialize with README(optional).
+        • Copy the repository path.
+Connecting Local Repository to GitHub
+        • Git remote add origin <repository_url>
+        • Git push -u origin main
+
+            Command             Description
+            git init            Initializes a new Git repository
+            git clone           Clone a repository
+            git add .           Stage all changes
+            git commit -m “”    Commit changes with messages
+            git push            Push changes to remote
+            git pull            Pull changes from remote
+            git status          Show current status
+            git log             View commit history
+            git branch          Manage branches
+            git merge           Merge branches
