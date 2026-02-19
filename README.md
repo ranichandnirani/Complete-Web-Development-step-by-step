@@ -184,30 +184,27 @@ cd "06_Learn JS/JS Foundation"
 ## 🎓 Learning Path
 
 ```mermaid
-graph TD
-    A[🌱 Start] --> B[📚 Web Basics<br/>COMPLETED ✅]
-    B --> C[🎨 HTML & CSS<br/>COMPLETED ✅]
-    C --> D[⚡ JavaScript<br/>COMPLETED ✅]
-    D --> E[🛠️ Git & GitHub<br/>COMPLETED ✅]
-    E --> F[🔧 Node.js Basics<br/>COMPLETED ✅]
-    F --> G[🔄 Express & APIs<br/>IN PROGRESS]
-    G --> H[⏳ MongoDB<br/>UPCOMING]
-    H --> I[⏳ React.js<br/>UPCOMING]
-    I --> J[⏳ Full Stack<br/>UPCOMING]
-    J --> K[🎉 MERN Master!]
+graph LR
+    A[🌱 Start] --> B[📝 L01-L04Basics]
+    B --> C[🎨 L05-L06Patterns]
+    C --> D[⚙️ L07-L09Functions]
+    D --> E[📊 L10-L13Data Structures]
+    E --> F[🔧 L14-L16Advanced]
+    F --> G[🔁 L17-L18Recursion]
+    G --> H[🏗️ L24OOP]
+    H --> I[🎉 Complete!]
     
-    style B fill:#90EE90
-    style C fill:#90EE90
-    style D fill:#90EE90
-    style E fill:#90EE90
-    style F fill:#90EE90
-    style G fill:#FFD700
-    style H fill:#FFA500
-    style I fill:#FFA500
-    style J fill:#FFA500
+    style A fill:#90EE90,stroke:#2E8B57,stroke-width:3px,color:#000
+    style B fill:#87CEEB,stroke:#4682B4,stroke-width:3px,color:#000
+    style C fill:#FFB6C1,stroke:#FF69B4,stroke-width:3px,color:#000
+    style D fill:#DDA0DD,stroke:#9370DB,stroke-width:3px,color:#000
+    style E fill:#F0E68C,stroke:#DAA520,stroke-width:3px,color:#000
+    style F fill:#FFA07A,stroke:#FF6347,stroke-width:3px,color:#000
+    style G fill:#98D8C8,stroke:#20B2AA,stroke-width:3px,color:#000
+    style H fill:#B0C4DE,stroke:#4169E1,stroke-width:3px,color:#000
+    style I fill:#FFD700,stroke:#FF8C00,stroke-width:4px,color:#000
 ```
 
----
 
 ## 📖 Detailed Module Breakdown
 
