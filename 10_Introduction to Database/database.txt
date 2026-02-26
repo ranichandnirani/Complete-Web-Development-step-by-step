@@ -1,0 +1,80 @@
+# Introduction to Databases
+
+## What is a Database?
+
+A database is an organized collection of structured data stored electronically. A Database Management System (DBMS) is the software used to create, manage, and interact with that data.
+
+## Key Concepts
+
+### Data vs. Information
+- Data: Raw facts (e.g., `42`, `"Alice"`, `2024-01-15`)
+- Information: Processed data with meaning (e.g., "Alice made 42 purchases in 2024")
+
+### Types of Databases
+
+| Type                      |        Description                |          Examples      |
+|---------------------------|-----------------------------------|------------------------|
+| Relational (SQL)          | Data in tables with relationships | MySQL,PostgreSQL,SQLite|
+| Document                  | Data stored as JSON-like documents| MongoDB, Firestore     |
+| Key-Value                 | Simple key → value pairs          | Redis, DynamoDB        |
+| Graph                     | Nodes and edges for relationships | Neo4j                  |
+| Column-family             | Optimized for large-scale queries | Cassandra              |
+
+## Relational Databases (Most Common)
+
+Data is stored in tables (like spreadsheets):
+
+| id | name  | age | city     |
+|----|-------|-----|----------|
+| 1  | Alice | 30  | New York |
+| 2  | Bob   | 25  | Chicago  |
+
+Key ideas:
+- Table — a collection of rows and columns
+- Row / Record — a single entry
+- Column / Field — a specific attribute
+- Primary Key — a unique identifier for each row (e.g., `id`)
+- Foreign Key — a reference to a primary key in another table (links tables together)
+
+## SQL Basics
+
+SQL (Structured Query Language) is how you talk to a relational database.
+
+--> Create a table:
+CREATE TABLE users (
+  id   INT PRIMARY KEY,
+  name VARCHAR(50),
+  age  INT
+);
+
+--> Insert data:
+INSERT INTO users VALUES (1, 'Alice', 30);
+
+--> Query data:
+SELECT * FROM users WHERE age > 25;
+
+--> Update data:
+UPDATE users SET age = 31 WHERE name = 'Alice';
+
+--> Delete data:
+DELETE FROM users WHERE id = 1;
+
+The four core operations are often called CRUD: Create, Read, Update, Delete.
+
+## Important Database Concepts
+
+ACID Properties (for reliable transactions):
+- Atomicity     — all or nothing
+- Consistency   — data stays valid
+- Isolation     — transactions don't interfere
+- Durability    — committed data is saved permanently
+
+Normalization —> organizing data to reduce redundancy (e.g., don't store a user's city in every order row — store it once in a users table).
+
+Indexes —> like a book's index; they speed up queries at the cost of extra storage.
+
+## SQL vs. NoSQL — When to Use Which?
+
+Use SQL when your data is structured, relationships matter, and consistency is critical (e.g., banking, e-commerce).
+
+Use NoSQL when you need flexibility, massive scale, or unstructured/varied data (e.g., social media feeds, real-time apps).
