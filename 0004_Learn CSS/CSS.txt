@@ -1,0 +1,14 @@
+What it is?
+
+CSS is basically the makeup and styling of a webpage.
+
+CSS (Cascading Style Sheets) is used to style HTML —
+like colors, fonts, sizes, spacing, layout, animations, borders, backgrounds… all the good-looking stuff.
+
+Simple vibe:
+
+HTML = structure (skeleton)
+CSS = design (clothes + makeup)
+JS = actions (brain)
+
+Super short:- CSS makes your website look attractive and well-designed.
