@@ -1,9 +1,0 @@
-How the Internet Works (easy version):
-
-1. You type a website name (like google.com).
-2. Your device asks a DNS server: “Hey, what’s the exact address (IP) of this website?”
-3. DNS gives the IP → your device sends a request to that server.
-4. The server receives your request, finds the data (page, image, video).
-5. Server sends the data back to you → your browser shows the website.
-
-Tiny example:- It’s like sending a letter. You write the name, post office finds the correct house, delivers it, and brings the reply back.

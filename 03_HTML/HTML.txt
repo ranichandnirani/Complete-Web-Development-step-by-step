@@ -1,9 +1,0 @@
-What is HTML?
-
-HTML is basically the skeleton of any webpage.
-
-In simple words:- HTML (HyperText Markup Language) is the language used to create the structure of a website—like headings, paragraphs, images, buttons, forms, tables, etc.
-Think of it like:- You build a house → HTML is the bricks and walls. CSS decorates it, JS makes it interactive.
-
-Super short:-
-            HTML = the basic structure of every webpage.
