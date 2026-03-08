@@ -1,0 +1,22 @@
+{
+  "name": "project-management",
+  "version": "1.0.0",
+  "description": "A Project Management Application for biginners",
+  "keywords": [
+    "udemy",
+    "course",
+    "backend",
+    "API",
+    "creation"
+  ],
+  "license": "ISC",
+  "author": "Chandni Rani",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "devDependencies": {
+    "prettier": "3.8.1"
+  }
+}
