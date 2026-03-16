@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+
 const app = express();
 
 // app.use for middleware
@@ -19,6 +20,12 @@ app.use(cors({
         allowedHeaders: ["Authorization", "Content-Type"]
     }),
 );
+
+// import the route
+
+import healthCheckRouter from "./routes/healthcheck.routes.js";
+
+app.use("/api/v1/healthcheck", healthCheckRouter);
 
 app.get("/", (req, res)=> {
     res.send("Welcome to basecampy!");
