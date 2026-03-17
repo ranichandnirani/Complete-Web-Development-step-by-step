@@ -1,4 +1,4 @@
-import {ApiResponse} from "../utils/api-response.js";
+import ApiResponse from "../utils/api-response.js";
 
 const healthCheck = (req, res)=> {
     try {
@@ -9,3 +9,5 @@ const healthCheck = (req, res)=> {
 
     }
 };
+
+export { healthCheck };
