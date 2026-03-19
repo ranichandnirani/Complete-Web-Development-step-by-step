@@ -15,12 +15,12 @@ constusserSchema = new Schema(
             }
         },
         username: {
-        type: String,
-        required: true,
-        unique: true,
-        lowercase: true,
-        trim: true,
-        index: true
+            type: String,
+            required: true,
+            unique: true,
+            lowercase: true,
+            trim: true,
+            index: true
         },
         email: {
             type: String,
@@ -68,5 +68,9 @@ userSchema.pre("Save", async function(next) {
     this.password = await bcrypt.hash(this.password, 10);
     next();
 });
+
+userSchema.method.isPassworCorrect = async function (password) {
+    return await bcrypt.compare(password, this.password);
+};
 
 export const User = mongoose.model("User", userSchema);
