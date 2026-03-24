@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import crypto from "crypto";
 
 // Model for user
-constusserSchema = new Schema(
+const userSchema = new Schema(
     {
         avatar: {
             type: {
@@ -39,7 +39,7 @@ constusserSchema = new Schema(
             type: String,
             required: [true, "Password is required"]
         },
-        isEamilVarified: {
+        isEmailVarified: {
             type: Boolean,
             default: false
         },
@@ -52,10 +52,10 @@ constusserSchema = new Schema(
         forgotPasswordExpiry: {
             type: Date
         },
-        emailVarificationToken: {
+        emailVerificationToken: {
             type: String
         },
-        emailVarificationExpiry: {
+        emailVerificationExpiry: {
             type: Date
         }
     },

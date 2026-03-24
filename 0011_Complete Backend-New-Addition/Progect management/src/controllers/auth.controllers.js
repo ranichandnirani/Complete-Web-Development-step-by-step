@@ -26,12 +26,12 @@ const generateAccessAndRefreshTokens = async (userId) => {
 const registerUser = asyncHandler(async (req, res) => {
     const {email, username, password, role} = req.body;
 
-    const exixtedUser = await User.findOne({
+    const existedUser = await User.findOne({
         $or: [{username}, {email}],
     });
 
-    if(exixtedUser) {
-        throw new ApiError(409, "User with email or username alread exists", []);
+    if(existedUser) {
+        throw new ApiError(409, "User with email or username already exists", []);
     }
 
     const user = await User.create({
@@ -50,15 +50,15 @@ const registerUser = asyncHandler(async (req, res) => {
 
     await sendEmail({
         email: user?.email,
-        subject: "Please verify youremail",
+        subject: "Please verify your email",
         mailgenContent:emailVerificationMailgenContent(
             user.username,
-            `${req.protocol}://${req.ge("host")}/api/v1/usersverify-email/${unHashedToken}`
+            `${req.protocol}://${req.get("host")}/api/v1/users/verify-email/${unHashedToken}`
         ),
     });
 
     const createdUser = await User.findById(user._id).select(
-        "-password -refreshToken -emailVericationToken -emailVerificationExpiry",
+        "-password -refreshToken -emailVerificationToken -emailVerificationExpiry",
     );
 
     // Verify
