@@ -80,11 +80,11 @@ const registerUser = asyncHandler(async (req, res) => {
 const login = asyncHandler(async (req, res) => {
     const {email, password, username} = req.body
 
-    if(!email) {
-        throw new ApiError(400, " email is required");
+    if(!email && !username) {
+        throw new ApiError(400, " email or username required");
     }
 
-    const user = await User.findOne({email});
+    const user = await User.findOne({$or: [{ email }, { username }] });
 
     if(!user) {
         throw new ApiError(400, "User does not exists");
@@ -106,14 +106,14 @@ const login = asyncHandler(async (req, res) => {
     const options = {
         httpOnly: true,
         secure: true,
-    }
+    };
 
     return res
        .status(200) 
-       .cookie("access token", accessToken, options)
-       .cookie("refresh token", refreshToken, options)
+       .cookie("accessToken", accessToken, options)
+       .cookie("refreshToken", refreshToken, options)
        .json(
-            new ApiError(
+            new ApiResponse(
                 200,
                 {
                   user: loggedInUser,
@@ -122,7 +122,7 @@ const login = asyncHandler(async (req, res) => {
                 },
                 "User logged in successfully"
             )
-        )
+        );
 });
 
 export { registerUser, login };
