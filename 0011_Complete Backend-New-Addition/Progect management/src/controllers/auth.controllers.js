@@ -13,9 +13,9 @@ const generateAccessAndRefreshTokens = async (userId) => {
         const accessToken = user.generateAccessToken();
         const refreshToken = user.generateRefreshToken();
 
-        user.refreshToken = refreshToken
-        await user.save({validateBeforeSave: false})
-        return {accessToken, refreshToken}
+        user.refreshToken = refreshToken;
+        await user.save({validateBeforeSave: false});
+        return {accessToken, refreshToken};
     } catch (error) {
         throw new ApiError(500, "Something went wrong while generating access token");
     }
@@ -43,8 +43,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
     const { unHashedToken, hashedToken, tokenExpiry } = user.generateTemporaryToken();
 
-    user.emailVerificationToken = hashedToken
-    user.emailVerificationExpiry = tokenExpiry
+    user.emailVerificationToken = hashedToken;
+    user.emailVerificationExpiry = tokenExpiry;
 
     await user.save({validateBeforeSave: false});
 
@@ -53,7 +53,7 @@ const registerUser = asyncHandler(async (req, res) => {
         subject: "Please verify your email",
         mailgenContent:emailVerificationMailgenContent(
             user.username,
-            `${req.protocol}://${req.get("host")}/api/v1/users/verify-email/${unHashedToken}`
+            `${req.protocol}://${req.get("host")}/api/v1/users/verify-email/${unHashedToken}`,
         ),
     });
 
@@ -125,4 +125,29 @@ const login = asyncHandler(async (req, res) => {
         );
 });
 
-export { registerUser, login };
+const logoutUser = asyncHandler(async(req, res) => {
+    await User.findByIdAndUpdate(
+        req.user._id,
+        {
+            $set:{
+                refreshToken:""
+            }
+        },
+        {
+            new: true,
+        },        
+    );
+    const options = {
+        httpOnly: true,
+        secure: true
+    };
+    return res
+        .status(200)
+        .clearCookie("accessToken", options)
+        .clearCookie("refreshToken", options)
+        .json(
+            new ApiResponse(200, {}, "User logged out")
+        );
+});
+
+export { registerUser, login, logoutUser };
