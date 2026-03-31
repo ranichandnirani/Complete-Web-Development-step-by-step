@@ -64,7 +64,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // Verify
     if(!createdUser) {
-        throw new ApiError(500, "Somthing went wrong while registering a user")
+        throw new ApiError(500, "Something went wrong while registering a user")
     }
 
     return res
@@ -202,7 +202,7 @@ const resendEmailVerification = asyncHandler(async (req, res) => {
     }
 
     if(user.isEmailVerified) {
-        throw new ApiError(409, "Email is already veryfied" )
+        throw new ApiError(409, "Email is already verified" )
     }
 
     // Generate temporary token
@@ -317,7 +317,53 @@ const forgotPasswordRequest = asyncHandler(async (req, res) => {
 
 });
 
- // const verifyEmail = asyncHandler(async (req, res) => {})
+const resetForgotPassword = asyncHandler(async (req, res) => {
+    const {resetToken} = req.params;
+    const {newPassword} = req.body;
+
+    let hashedToken = crypto
+      .createHash("sha256")
+      .update(resetToken)
+      .digest("hex")
+
+    const user = await User.findOne({
+        forgotPasswordToken: hashedToken,
+        forgotPasswordExpiry: {$gt: Date.now()}
+    });
+
+    if(!user) {
+        throw new ApiError(489, "Token is invalid or expired");
+    }
+
+    user.forgotPasswordExpiry = undefined
+    user.forgotPasswordToken = undefined
+
+    user.password = newPassword;
+    await user.save({validateBeforeSave: false});
+
+    return res  
+      .status(200)
+      .json(new ApiResponse(200, {}, "Password reset successfully"));
+});
+
+const changeCurrentPassword = asyncHandler(async (req, res) => {
+    const {oldPassword, newPassword} = req.body;
+
+    const user = await User.findById(req.user?._id);
+
+    const isPasswordValid = await user.isPasswordCorrect(oldPassword)
+
+    if(!isPasswordValid) {
+        throw new ApiError(400, "Invalid old password")
+    }
+
+    user.password = newPassword;
+    await user.save({validateBeforeSave: false});
+
+    return res
+     .status(200)
+     .json(new ApiResponse(200, {}, "Password reset successfully"));
+});
 
 
-export { registerUser, login, logoutUser, getCurrentUser, verifyEmail, resendEmailVerification, refreshAccessToken, forgotPasswordRequest };
+export { registerUser, login, logoutUser, getCurrentUser, verifyEmail, resendEmailVerification, refreshAccessToken, forgotPasswordRequest, resetForgotPassword,changeCurrentPassword };
