@@ -147,7 +147,7 @@ const logoutUser = asyncHandler(async(req, res) => {
         .clearCookie("accessToken", options)
         .clearCookie("refreshToken", options)
         .json(
-            new ApiResponse(200, {}, "User logged out")
+            new ApiResponse(200, {}, "User logged out"),
         );
 });
 
@@ -366,4 +366,15 @@ const changeCurrentPassword = asyncHandler(async (req, res) => {
 });
 
 
-export { registerUser, login, logoutUser, getCurrentUser, verifyEmail, resendEmailVerification, refreshAccessToken, forgotPasswordRequest, resetForgotPassword,changeCurrentPassword };
+export { 
+    registerUser, 
+    login, 
+    logoutUser, 
+    getCurrentUser, 
+    verifyEmail, 
+    resendEmailVerification, 
+    refreshAccessToken, 
+    forgotPasswordRequest, 
+    resetForgotPassword,
+    changeCurrentPassword 
+};
