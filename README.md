@@ -70,9 +70,9 @@ This repository documents my **full-stack web development journey** following a 
 | Module  | Topic                  | Content               | Status |
 | ------- | ---------------------- | --------------------- | ------ |
 | **09** | Backend with Node.js   | File Handling, Server | ✅     |
-| **10** | Express.js & APIs      | RESTful APIs          | 🔄     |
-| **11** | Databases & MongoDB    | CRUD Operations       | ⏳     |
-| **12** | Authentication & JWT   | User Management       | ⏳     |
+| **10** | Express.js & APIs      | RESTful APIs          | ✅     |
+| **11** | Databases & MongoDB    | CRUD Operations       | ✅     |
+| **12** | Authentication & JWT   | User Management       | 🔄     |
 | **13** | React & Frontend       | Modern Frontend       | ⏳     |
 | **14** | Full-Stack Projects    | Complete Applications | ⏳     |
 
