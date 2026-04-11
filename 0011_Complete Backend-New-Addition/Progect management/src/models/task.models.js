@@ -24,16 +24,16 @@ const taskSchema = new Schema({
     status: {
         type: String,
         enum: AvailableTaskStatuses,
-        default: TaskStatusEnum.TODO
+        default: TaskStatusEnum.TODO,
     },
     attachments: {
         type: [{
             url: String,
             MimeType: String,
-            size: Number
+            size: Number,
         }],
-        default: []
-    }
+        default: [],
+    },
 
 }, { timestamps: true});
 
