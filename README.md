@@ -41,40 +41,40 @@ This repository documents my **full-stack web development journey** following a 
 
 | Module  | Topic                        | Progress      | Status |
 | ------- | ---------------------------- | ------------- | ------ |
-| **01** | Before Web Dev               | Introduction  | ✅     |
-| **02** | Basics of Web Dev            | How Web Works | ✅     |
+| **0001** | Before Web Dev               | Introduction  | ✅     |
+| **0002** | Basics of Web Dev            | How Web Works | ✅     |
 
 ### 🎨 Frontend Technologies - COMPLETED ✅
 
 | Module  | Topic              | Technologies              | Status |
 | ------- | ------------------ | ------------------------- | ------ |
-| **03** | HTML               | Semantic HTML, Forms      | ✅     |
-| **04** | Learn CSS          | Flexbox, Grid, Responsive | ✅     |
-| **05** | Learn Tailwind CSS | Utility-first Framework   | ✅     |
+| **0003** | HTML               | Semantic HTML, Forms      | ✅     |
+| **0004** | Learn CSS          | Flexbox, Grid, Responsive | ✅     |
+| **0005** | Learn Tailwind CSS | Utility-first Framework   | ✅     |
 
 ### ⚡ JavaScript & Interactivity - COMPLETED ✅
 
 | Module  | Topic                 | Content                  | Status |
 | ------- | --------------------- | ------------------------ | ------ |
-| **06** | JavaScript Foundation | ES6+, DOM, Async/Await   | ✅     |
-| **07** | JavaScript Projects   | Mini Apps, Interactive   | ✅     |
+| **0006** | JavaScript Foundation | ES6+, DOM, Async/Await   | ✅     |
+| **0007** | JavaScript Projects   | Mini Apps, Interactive   | ✅     |
 
 ### 🛠️ Tools & Version Control - COMPLETED ✅
 
 | Module  | Topic          | Content                    | Status |
 | ------- | -------------- | -------------------------- | ------ |
-| **08** | Git & GitHub   | Version Control, Workflows | ✅     |
+| **0008** | Git & GitHub   | Version Control, Workflows | ✅     |
 
-### 🔧 Backend Development - IN PROGRESS 🚧
+### 🔧 Backend Development - COMPLETED TILL CHAPTER 12 ✅
 
-| Module  | Topic                  | Content               | Status |
-| ------- | ---------------------- | --------------------- | ------ |
-| **09** | Backend with Node.js   | File Handling, Server | ✅     |
-| **10** | Express.js & APIs      | RESTful APIs          | ✅     |
-| **11** | Databases & MongoDB    | CRUD Operations       | ✅     |
-| **12** | Authentication & JWT   | User Management       | 🔄     |
-| **13** | React & Frontend       | Modern Frontend       | ⏳     |
-| **14** | Full-Stack Projects    | Complete Applications | ⏳     |
+| Module  | Topic                         | Content                     | Status |
+| ------- | ----------------------------- | --------------------------- | ------ |
+| **0009** | Backend with Node.js          | File Handling, Server       | ✅     |
+| **0010** | Introduction to Database      | SQL, NoSQL, Database Basics | ✅     |
+| **0011** | Complete Backend-New-Addition | Project Management          | ✅     |
+| **0012** | Backend Project with MongoDB  | Web Server, Express, VidTube | ✅     |
+| **0013** | React & Frontend              | Modern Frontend             | ⏳     |
+| **14** | Full-Stack Projects           | Complete Applications       | ⏳     |
 
 **Legend:** ✅ Completed | 🔄 In Progress | ⏳ Upcoming
 
@@ -114,26 +114,32 @@ cd "06_Learn JS/JS Foundation"
 
 ```
 📦 Complete Web Development Step by Step
-├── 📁 01_Before web-dev
+├── 📁 0001_Before web-dev
 │   └── Introduction & Prerequisites ✅
-├── 📁 02_Basic of web-dev
+├── 📁 0002_Basic of web-dev
 │   └── How the Internet Works ✅
-├── 📁 03_HTML
+├── 📁 0003_HTML
 │   └── HTML5 Fundamentals ✅
-├── 📁 04_Learn CSS
+├── 📁 0004_Learn CSS
 │   └── CSS3 & Advanced Styling ✅
-├── 📁 05_Learn Tailwind
+├── 📁 0005_Learn Tailwind
 │   └── Tailwind CSS Framework ✅
-├── 📁 06_Learn JS
+├── 📁 0006_Learn JS
 │   └── JavaScript Foundation ✅
-├── 📁 07_JS-Projects
+├── 📁 0007_JS-Projects
 │   └── Interactive Applications ✅
-├── 📁 08_Git and Github-master version control
+├── 📁 0008_Git and Github-master version control
 │   └── Git & GitHub Workflows ✅
-├── 📁 09_Backend with NodeJS and Projects
+├── 📁 0009_Backend with NodeJS and Projects
 │   └── Node.js & File Handling ✅
+├── 📁 0010_Introduction to Database
+│   └── SQL, NoSQL & Database Basics ✅
+├── 📁 0011_Complete Backend-New-Addition
+│   └── Project Management & Backend Additions ✅
+├── 📁 0012_Backend Project with MongoDB
+│   └── Web Server, Express & VidTube ✅
 └── 📁 [Upcoming Modules]
-    └── Express, MongoDB, React... ⏳
+    └── React, Full-Stack Projects... ⏳
 ```
 
 ---
@@ -157,24 +163,28 @@ cd "06_Learn JS/JS Foundation"
 - ✅ Developer Tools (Chrome DevTools, Debugging)
 - ✅ Node.js Basics (File System, Modules)
 
+🚀 **Backend & Database**
+
+- ✅ Database Basics (SQL vs NoSQL, introduction)
+- ✅ Express.js fundamentals
+- ✅ Web server setup
+- ✅ MongoDB backend project structure
+- ✅ Project management basics
+
 🚀 **Projects Completed**
 
 - ✅ JavaScript Mini Projects
 - ✅ Interactive Web Applications
 - ✅ File Management with Node.js
-- ✅ Responsive Website Designs
+- ✅ Backend practice projects
+- ✅ VidTube backend project
 
 ### 🔄 Currently Learning
 
-- 🔄 Advanced Node.js concepts
-- 🔄 Express.js framework
-- 🔄 Building RESTful APIs
-- 🔄 Database integration
+- 🔄 Preparing for React.js and frontend frameworks
 
 ### ⏳ Coming Up Next
 
-- ⏳ MongoDB & Database Management
-- ⏳ User Authentication & Security
 - ⏳ React.js & Modern Frontend
 - ⏳ Full-Stack MERN Projects
 - ⏳ Deployment & DevOps
@@ -184,11 +194,11 @@ cd "06_Learn JS/JS Foundation"
 
 ```mermaid
 graph LR
-    A[🌱 Start] --> B[📚 01-02Foundation]
-    B --> C[🎨 03-05HTML & CSS]
-    C --> D[⚡ 06-07JavaScript]
-    D --> E[🛠️ 08Git & GitHub]
-    E --> F[🔧 09Node.js]
+    A[🌱 Start] --> B[📚 0001-02Foundation]
+    B --> C[🎨 0003-0005HTML & CSS]
+    C --> D[⚡ 0006-0007JavaScript]
+    D --> E[🛠️ 0008Git & GitHub]
+    E --> F[🔧 0009-0012 Backend & Database]
     F --> G[🎉 Full StackDeveloper!]
     
     style A fill:#90EE90,stroke:#2E8B57,stroke-width:3px,color:#000
@@ -264,7 +274,7 @@ graph LR
 </details>
 
 <details>
-<summary>✅ <b>Module 06: JavaScript Foundation</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0006: JavaScript Foundation</b> - COMPLETED</summary>
 
 - ES6+ Syntax
 - Variables & Data Types
@@ -279,7 +289,7 @@ graph LR
 </details>
 
 <details>
-<summary>✅ <b>Module 07: JavaScript Projects</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0007: JavaScript Projects</b> - COMPLETED</summary>
 
 - Todo List App
 - Calculator
@@ -290,7 +300,7 @@ graph LR
 </details>
 
 <details>
-<summary>✅ <b>Module 08: Git & GitHub</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0008: Git & GitHub</b> - COMPLETED</summary>
 
 - Git Installation & Setup
 - Basic Commands (add, commit, push)
@@ -302,7 +312,7 @@ graph LR
 </details>
 
 <details>
-<summary>✅ <b>Module 09: Backend with Node.js</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0009: Backend with Node.js</b> - COMPLETED</summary>
 
 - Node.js Introduction
 - NPM & Package Management
@@ -313,7 +323,7 @@ graph LR
 </details>
 
 <details>
-<summary>🔄 <b>Module 10: Express.js & APIs</b> - IN PROGRESS</summary>
+<summary>✅ <b>Module 0010: Express.js & APIs</b> - COMPLETED</summary>
 
 - Express.js Installation
 - Routing
