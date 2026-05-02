@@ -13,7 +13,7 @@ dotenv.config();
 
 const uploadOnCloudinary = async (localPath, folder) => {
     try {
-        if(!localFilePath) return null
+        if(!localPath) return null
         const response = await cloudinary.uploader.upload(
             localFilePath, {
                 resource_type: "auto"
@@ -22,10 +22,10 @@ const uploadOnCloudinary = async (localPath, folder) => {
         console.log("File uploaded to cloudinary successfully. File src:" + response.url);
         
         // once the file is uploaded to cloudinary successfully, we would like to dellete it from our server
-        fs.unlinkSync(localFilePath)
+        fs.unlinkSync(localPath)
         return response
     } catch (error) {
-        fs.unlinkSync(localFilePath)
+        fs.unlinkSync(localPath)
         return null
     }
 }    

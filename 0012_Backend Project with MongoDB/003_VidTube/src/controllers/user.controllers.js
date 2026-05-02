@@ -5,11 +5,11 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 
 const registrUser = asyncHandler(async (req, res) => {
-    const { fullName, email, username, password} = req.body
+    const { fullname, email, username, password} = req.body
 
     // validation
     if(
-        [fullName, username, email, password].some((field)=>
+        [fullname, username, email, password].some((field)=>
         field?.trim() === "")
     ) {
         throw new ApiError(400, "All fields are required")
@@ -30,15 +30,34 @@ const registrUser = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Avatar file is missing")
     }
 
-    const avatar = await uploadOnCloudinary(avatarLocalPath);
-    let coverImage = "";
+    // const avatar = await uploadOnCloudinary(avatarLocalPath);
+    // let coverImage = "";
 
-    if(coverLocalPath) {
-        coverImage = await uploadOnCloudinary(coverImage);
+    // if(coverLocalPath) {
+    //     coverImage = await uploadOnCloudinary(coverImage);
+    // }
+
+    let avatar;
+    try {
+        avatar = await uploadOnCloudinary(avatarLocalPath);
+        console.log("Avatar uploaded to Cloudinary:", avatar);
+    } catch (error) {
+        console.error("Error uploading files to Cloudinary:", error);
+        throw new ApiError(500, "Failed to upload avatar, please try again later");
+    }
+
+
+    let coverImage;
+    try {
+        coverImage = await uploadOnCloudinary(coverLocalPath);
+        console.log("Cover image uploaded to Cloudinary:", coverImage);
+    } catch (error) {
+        console.error("Error uploading files to Cloudinary:", error);
+        throw new ApiError(500, "Failed to upload cover image, please try again later");
     }
 
     const user = await User.create({
-        fullName,
+        fullname,
         avatar: avatar.url,
         coverImage: coverImage?.url || "",
         email,
