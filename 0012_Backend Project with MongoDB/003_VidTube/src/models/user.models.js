@@ -1,19 +1,6 @@
-/*
-id string pk
-username string
-email string
-fullName string
-avatar string
-converImage string
-watchHistory ObjectId[]
-password string
-refreshToken string
-createdAt Date
-updatedAt Date
-*/
-
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const userSchema = new Schema(
     {
@@ -64,13 +51,10 @@ const userSchema = new Schema(
 
 userSchema.pre("save", async function (next) {
     // fixed in registration
-    if(!this.isModified("password"))return next();
+    if(!this.isModified("password")) return next();
 
-    this.password = bcrypt.hash(this.password, 10);
-
-
-
-    next();
+    this.password = await bcrypt.hash(this.password, 10);
+    // next();
 });
 
 userSchema.methods.isPasswordCorrect = async function(password) {

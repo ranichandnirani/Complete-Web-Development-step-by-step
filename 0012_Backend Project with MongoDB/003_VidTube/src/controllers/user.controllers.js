@@ -1,10 +1,10 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError} from "../utils/apiError.js";
 import { User } from "../models/user.models.js";
-import { uploadOnCloudinary } from "../utils/cloudinary.js";
+import { uploadOnCloudinary, deleteFromCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 
-const registrUser = asyncHandler(async (req, res) => {
+const registerUser = asyncHandler(async (req, res) => {
     const { fullname, email, username, password} = req.body
 
     // validation
@@ -23,11 +23,11 @@ const registrUser = asyncHandler(async (req, res) => {
         throw new ApiError(409, "User with the same username or email already exists")
     }
 
-    const avatarLocalPath = req.files?.avatar[0]?.path;
-    const coverLocalPath = req.files?.coverImage[0]?.path;
+    const avatarLocalPath = req.files?.avatar?.[0]?.path;
+    const coverLocalPath = req.files?.coverImage?.[0]?.path;
 
     if(!avatarLocalPath) {
-        throw new ApiError(400, "Avatar file is missing")
+        throw new ApiError(400, "Avatar file is required")
     }
 
     // const avatar = await uploadOnCloudinary(avatarLocalPath);
@@ -43,41 +43,59 @@ const registrUser = asyncHandler(async (req, res) => {
         console.log("Avatar uploaded to Cloudinary:", avatar);
     } catch (error) {
         console.error("Error uploading files to Cloudinary:", error);
-        throw new ApiError(500, "Failed to upload avatar, please try again later");
+        throw new ApiError(500, "Failed to upload avatar");
     }
 
 
     let coverImage;
-    try {
+    if (coverLocalPath) {
+        try {
         coverImage = await uploadOnCloudinary(coverLocalPath);
         console.log("Cover image uploaded to Cloudinary:", coverImage);
-    } catch (error) {
-        console.error("Error uploading files to Cloudinary:", error);
-        throw new ApiError(500, "Failed to upload cover image, please try again later");
+        } catch (error) {
+        console.error("Error uploading cover image to Cloudinary:", error);
+        throw new ApiError(500, "Failed to upload cover image");
+        }
     }
 
-    const user = await User.create({
-        fullname,
-        avatar: avatar.url,
-        coverImage: coverImage?.url || "",
-        email,
-        password,
-        username: username.toLowerCase()
-    });
-
-    const createdUser = await User.findById(user._id).select(
-        "-password -refresshToken"
-    )
-
-    if(!createdUser) {
-        throw new ApiError(500, "Somthing went wrong, please try again later")
-    }
-
-    return res
-        .status(201)
-        .json(
-            new ApiResponse(200, createdUser, "User registered successfully")
+    try {
+        const user = await User.create({
+            fullname,
+            avatar: avatar.url,
+            coverImage: coverImage?.url || "",
+            email,
+            password,
+            username: username.toLowerCase()
+        });
+    
+        const createdUser = await User.findById(user._id).select(
+            "-password -refreshToken"
         )
+    
+        if(!createdUser) {
+            throw new ApiError(500, "Somthing went wrong, while registering a user")
+        }
+    
+        return res
+            .status(201)
+            .json(
+                new ApiResponse(200, createdUser, "User registered successfully")
+            )
+    
+    } catch (error) {
+       console.error("User creation failed", error);
+
+       if(avatar) {
+        await deleteFromCloudinary(avatar.public_id);
+       }
+
+       if(coverImage) {
+        await deleteFromCloudinary(coverImage.public_id);
+       }
+        
+       throw new ApiError(500, "Somthing went wrong, while registering a user and images are deleted from cloudinary")
+    }
+        
 });
 
-export { registrUser };
+export { registerUser };
