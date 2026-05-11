@@ -197,7 +197,7 @@ graph LR
     A[🌱 Start] --> B[📚 0001-02Foundation]
     B --> C[🎨 0003-0005HTML & CSS]
     C --> D[⚡ 0006-0007JavaScript]
-    D --> E[🛠️ 0008Git & GitHub]
+    D --> E[🛠️ 0008-Git & GitHub]
     E --> F[🔧 0009-0012 Backend & Database]
     F --> G[🎉 Full StackDeveloper!]
     
@@ -216,7 +216,7 @@ graph LR
 ## 📖 Detailed Module Breakdown
 
 <details>
-<summary>✅ <b>Module 01: Before Web Dev</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0001: Before Web Dev</b> - COMPLETED</summary>
 
 - What is Web Development?
 - Frontend vs Backend vs Full-Stack
@@ -226,7 +226,7 @@ graph LR
 </details>
 
 <details>
-<summary>✅ <b>Module 02: Basics of Web Dev</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0002: Basics of Web Dev</b> - COMPLETED</summary>
 
 - How the Internet Works
 - Client-Server Architecture
@@ -236,7 +236,7 @@ graph LR
 </details>
 
 <details>
-<summary>✅ <b>Module 03: HTML</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0003: HTML</b> - COMPLETED</summary>
 
 - HTML5 Structure & Syntax
 - Semantic HTML Elements
@@ -248,7 +248,7 @@ graph LR
 </details>
 
 <details>
-<summary>✅ <b>Module 04: Learn CSS</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0004: Learn CSS</b> - COMPLETED</summary>
 
 - CSS Selectors & Specificity
 - Box Model
@@ -262,7 +262,7 @@ graph LR
 </details>
 
 <details>
-<summary>✅ <b>Module 05: Learn Tailwind</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0005: Learn Tailwind</b> - COMPLETED</summary>
 
 - Tailwind CSS Installation
 - Utility-First Methodology
@@ -323,7 +323,17 @@ graph LR
 </details>
 
 <details>
-<summary>✅ <b>Module 0010: Express.js & APIs</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0010: Databases & MongoDB</b> - COMPLETED</summary>
+
+- MongoDB Basics
+- CRUD Operations
+- Mongoose ODM
+- Data Modeling
+- Database Connections
+</details>
+
+<details>
+<summary>✅ <b>Module 0011: Express.js & APIs</b> - COMPLETED</summary>
 
 - Express.js Installation
 - Routing
@@ -334,17 +344,7 @@ graph LR
 </details>
 
 <details>
-<summary>⏳ <b>Module 11: Databases & MongoDB</b> - UPCOMING</summary>
-
-- MongoDB Basics
-- CRUD Operations
-- Mongoose ODM
-- Data Modeling
-- Database Connections
-</details>
-
-<details>
-<summary>⏳ <b>Module 12: Authentication & Security</b> - UPCOMING</summary>
+<summary>⏳ <b>Module 0012: Authentication & Security</b> - COMPLETED</summary>
 
 - User Authentication
 - JWT Tokens
@@ -354,7 +354,7 @@ graph LR
 </details>
 
 <details>
-<summary>⏳ <b>Module 13: React.js</b> - UPCOMING</summary>
+<summary>⏳ <b>Module 0013: React.js</b> - UPCOMING</summary>
 
 - React Fundamentals
 - Components & Props
@@ -365,7 +365,7 @@ graph LR
 </details>
 
 <details>
-<summary>⏳ <b>Module 14: Full-Stack Projects</b> - UPCOMING</summary>
+<summary>⏳ <b>Module 0014: Full-Stack Projects</b> - UPCOMING</summary>
 
 - MERN Stack Applications
 - E-commerce Website
@@ -469,7 +469,7 @@ This is a personal learning repository, but suggestions and improvements are wel
 
 ## 🌟 Features
 
-- ✅ **9 Modules Completed**: Solid foundation built
+- ✅ **0011 Modules Completed**: Solid foundation built
 - 🔄 **Active Learning**: Regular updates and practice
 - ✅ **Hands-on Projects**: Real-world applications
 - ✅ **Modern Stack**: HTML, CSS, JS, Tailwind, Node.js
