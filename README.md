@@ -74,7 +74,7 @@ This repository documents my **full-stack web development journey** following a 
 | **0011** | Complete Backend-New-Addition | Project Management          | ✅     |
 | **0012** | Backend Project with MongoDB  | Web Server, Express, VidTube | ✅     |
 | **0013** | React & Frontend              | Modern Frontend             | ⏳     |
-| **14** | Full-Stack Projects           | Complete Applications       | ⏳     |
+| **0014** | Full-Stack Projects           | Complete Applications       | ⏳     |
 
 **Legend:** ✅ Completed | 🔄 In Progress | ⏳ Upcoming
 
@@ -487,6 +487,8 @@ Learning web development and documenting my journey!
 - 💡 [Open an Issue](https://github.com/ranichandnirani/Complete-Web-Development-step-by-step/issues)
 - 📧 Email: chandnirani229@gmail.com
 - 🌐 GitHub: [@ranichandnirani](https://github.com/ranichandnirani)
+- 🚀 LinkedIn: [@chandni-rani](https://www.linkedin.com/in/chandni-rani)
+- 🔗 Instagram: [@the_chan_dni](https://www.instagram.com/the_chan_dni/)
 
 ---
 
@@ -495,6 +497,8 @@ Learning web development and documenting my journey!
 <div align="center">
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ranichandnirani)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chandni-rani)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/the_chan_dni/)
 
 </div>
 
