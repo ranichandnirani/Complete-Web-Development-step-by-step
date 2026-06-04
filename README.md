@@ -344,7 +344,7 @@ graph LR
 </details>
 
 <details>
-<summary>⏳ <b>Module 0012: Authentication & Security</b> - COMPLETED</summary>
+<summary>✅ <b>Module 0012: Authentication & Security</b> - COMPLETED</summary>
 
 - User Authentication
 - JWT Tokens
