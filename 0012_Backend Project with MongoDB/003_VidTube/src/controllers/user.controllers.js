@@ -4,7 +4,7 @@ import { User } from "../models/user.models.js";
 import { uploadOnCloudinary, deleteFromCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 import jwt from "jsonwebtoken";
-import { channel, subscribe } from "diagnostics_channel";
+// import { channel, subscribe } from "diagnostics_channel";
 import mongoose from "mongoose";
 
 const generateAccessAndRefreshToken = async (userId) => {
@@ -51,13 +51,6 @@ const registerUser = asyncHandler(async (req, res) => {
     if(!avatarLocalPath) {
         throw new ApiError(400, "Avatar file is required")
     }
-
-    // const avatar = await uploadOnCloudinary(avatarLocalPath);
-    // let coverImage = "";
-
-    // if(coverLocalPath) {
-    //     coverImage = await uploadOnCloudinary(coverImage);
-    // }
 
     let avatar;
     try {
@@ -127,7 +120,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
     // validation
 
-    if(!email) {
+    if(!email && !username) {
         throw new ApiError(400, "Email is required")
     }
 
@@ -191,13 +184,15 @@ const logoutUser = asyncHandler(async (req, res) => {
 })
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
+
     const incomingRefreshToken  = req.cookies.refreshToken || req.body.refreshToken;
+
     if(!incomingRefreshToken) {
         throw new ApiError(401, "Refresh token is required");
     }
 
     try {
-        jwt.verify(
+        const decodedToken = jwt.verify(
             incomingRefreshToken,
             process.env.REFRESH_TOKEN_SECRET
         )
@@ -221,8 +216,8 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
         return res
          .status(200)
-         .cookies("accessToken", accessToken, options)
-         .cookies("refreshToken", newRefreshToken, options)
+         .cookie("accessToken", accessToken, options)
+         .cookie("refreshToken", newRefreshToken, options)
          .json(
             new ApiResponse(200, { accessToken, refreshToken: newRefreshToken }, "Access token refreshed successfully")
          )
@@ -358,7 +353,7 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
 const getUserChannelProfile = asyncHandler(async(req, res) => {
     const { username } = req.params
 
-    if(!username?.trim) {
+    if(!username?.trim()) {
         throw new ApiError(400, "Username is required")
 
     }
@@ -396,7 +391,7 @@ const getUserChannelProfile = asyncHandler(async(req, res) => {
                     },
                     isSubscribed: {
                         $cond: {
-                            if: {$in: [req.user?._id, "$subscribers"]},
+                            if: {$in: [req.user?._id, "$subscribers.subscriber"]},
                             then: true,
                             else: false
                         }
@@ -410,7 +405,7 @@ const getUserChannelProfile = asyncHandler(async(req, res) => {
                 username: 1,
                 avatar: 1,
                 subscribersCount: 1,
-                chennalsSubscribedToCount: 1,
+                channelsSubscribedToCount: 1,
                 isSubscribed: 1,
                 coverImage: 1,
                 email: 1
@@ -419,14 +414,14 @@ const getUserChannelProfile = asyncHandler(async(req, res) => {
         ]
     )
 
-    if(!chennal?.length) {
+    if(!channel?.length) {
         throw new ApiError(404, "Chennal not found")
     }
 
     return res
      .status(200)
      .json(
-        new ApiResponse(200, chennal[0], "Chennal profile fetched successfully")
+        new ApiResponse(200, channel[0], "Channel profile fetched successfully")
      )
 });
 
@@ -434,7 +429,7 @@ const getWatchHistory = asyncHandler(async(req, res) => {
     const user = await User.aggregate([
         {
             $match: {
-                _id: new mongoose.Types.ObjectId(req,user?._id)
+                _id: new mongoose.Types.ObjectId(req.user?._id)
             }
         },
         {
