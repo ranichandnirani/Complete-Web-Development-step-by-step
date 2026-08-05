@@ -2,23 +2,51 @@
 import Link from "next/link";
 import React from "react";
 import {useRouter} from "next/navigation";
-import {Axios} from "axios";
-
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 export default function LoginPage() {
+    const router = useRouter();
+
     const [user, setUser] = React.useState({
+
+
         email: "",
         password: "",
     })
 
-    const onLogin = async () => {
+    const [buttonDisabled, setButtonDisabled] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
 
+    const onLogin = async () => {
+        try {
+            setLoading(true);
+            const response = await axios.post("/api/users/login", user);
+            console.log("Login successful", response.data);
+
+            toast.success("Login successful");
+            router.push("/profile");
+
+        } catch (error: any) {
+            console.log("Login failed", error.message);
+        } finally {
+            setLoading(false);
+        }
     }
+
+    useEffect(() => {
+        if(user.email.length > 0 && user.password.length > 0) {
+            setButtonDisabled(false);
+        } else {
+            setButtonDisabled(true);
+        }
+    }, [user]);
 
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1 className="text-center text-white text-4xl ">Login</h1>
+            <h1>{loading ? "Processing" : "Login"}</h1>
 
             <hr />
             <label htmlFor="email">email</label>
@@ -29,7 +57,7 @@ export default function LoginPage() {
                 type="text" 
                 value={user.email} 
                 onChange={(e) => setUser({...user, email: e.target.value})}
-                placeholder="username" 
+                placeholder="email" 
             />
         
             <label htmlFor="password">password</label>
