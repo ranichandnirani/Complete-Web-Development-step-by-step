@@ -5,14 +5,15 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname
 
-  const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail'
+  const isAuthPath = path === '/login' || path === '/signup' 
+  const isPublicPath = isAuthPath || path === '/verifyemail'
 
   const token = request.cookies.get('token')?.value || ''
 
   // Logged in + on public page → redirect to profile
 
-  if(isPublicPath && token) {
-    return NextResponse.redirect(new URL('/profile', request.nextUrl))
+  if(isAuthPath && token) {
+    return NextResponse.redirect(new URL('/', request.nextUrl))
   } 
 
   // Not logged in + on private page → redirect to login
