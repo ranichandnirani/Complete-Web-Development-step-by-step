@@ -67,8 +67,7 @@ export async function POST(request: NextRequest) {
                     }, 
                     (error, result) => {
                         if(error) reject(error);
-                        else if (result) resolve(result);
-                        else reject(new Error("Cloudinary returned no upload result"));
+                        else resolve(result as CloudinaryUploadResult);
                     }
                 )
                 uploadStream.end(buffer); // End the stream with the buffer
@@ -84,6 +83,7 @@ export async function POST(request: NextRequest) {
                 duration: result.duration || 0,
             }
         })
+        console.log("Saved video:", video);
         return NextResponse.json(video)
 
     } catch (error) {
